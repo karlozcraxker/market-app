@@ -12,6 +12,23 @@
 
     $enc_pass = password_hash($p_wd, PASSWORD_DEFAULT);
 
+    //Validar si usuario ya existe
+    $check_email = "
+        SELECT
+            u.email
+        FROM
+            users u
+        WHERE
+            email = "$e_mail" or ide_number = "$id_number"
+        LIMIT 1
+    ";
+    
+    $res_check= pg_query($conn, $check_email);
+    if (pg_num_rows($check_email)> 0) {
+        echo"<script>Alert("User has already exists !!!"</script>";*
+        header('refresh:0;url=signup.html');
+    }else{
+
     //Step 3. Create query to insert into
     $query = "
         INSERT INTO users(
@@ -34,9 +51,11 @@
 
     //Step 5. Validate result
     if($res){
-        echo "User has been created successfully !";
+        echo "<script>alert('Success !!! Go to login')</script>";+
+        header('refresh:0;url=signin.html');
     } else {
         echo "Something wrong!";
     }
+}
 
 ?>
