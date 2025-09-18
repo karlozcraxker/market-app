@@ -6,7 +6,7 @@
     $f_name     =   $_POST['fname']; //Los campos dentro de los corchetes 
     $l_name     =   $_POST['lname']; //Deber ser igual al de el $
     $m_number   =   $_POST['mnumber'];
-    $ide_number  =   $_POST['idnumber'];
+    $id_number  =   $_POST['idnumber'];
     $e_mail     =   $_POST['email'];
     $p_wd       =   $_POST['passwd'];
 
@@ -19,13 +19,13 @@
         FROM
             users u
         WHERE
-            email = "$e_mail" or ide_number = "$id_number"
+            email = '$e_mail' or ide_number = '$id_number'
         LIMIT 1
     ";
     
     $res_check= pg_query($conn, $check_email);
-    if (pg_num_rows($check_email)> 0) {
-        echo"<script>Alert("User has already exists !!!"</script>";*
+    if (pg_num_rows($res_check)> 0) {
+        echo "<script>Alert('User has already exists !!!')</script>";
         header('refresh:0;url=signup.html');
     }else{
 
@@ -42,7 +42,7 @@
             '$f_name', 
             '$l_name', 
             '$m_number', 
-            '$ide_number', 
+            '$id_number', 
             '$e_mail', 
             '$enc_pass')";
 
