@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign in</title>
+    <title>Market - Login</title>
     <link rel="icon" type="image/png" href="icons/carrito-de-compras.png"/>
 </head>
 <body>
-    <center><h1>Login</h1></center>
-    <table border="0" align="center">
-        <tr><td><label>E-mail:</label></td></tr>
-        <tr><td><input text="E-mail"><br></td></tr>
-        <tr><td><label>Password::</label></td></tr>
-        <tr><td><input text="Password"><br><br></td></tr>
-        <tr><td><button>Login</button></td></tr>
-    </table>
-</body>
+    <br>
+    <center><img src = "imagens/user.png" width = "10%"></body></html></center>
+    <br>
+        <form name= "login-form" action = "signin.php" method = "post">
+            <table border = "0" align = "center">
+            <tr><td><input type = "email" name = "email" placeholder = "karloz@gmail.com" required></td></tr>
+            <tr><td><input type = "password" name = "passwd" placeholder = "********" required></td></tr>
+            <tr><td align = "center"><button>Login</button></td></tr>
+            </table>
+        </form>
+    </body>
 </html>
