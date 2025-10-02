@@ -3,14 +3,14 @@
     require('../config/database.php');
     //Step 2. Get form-data
 
-    $f_name     =   $_POST['fname']; //Los campos dentro de los corchetes 
-    $l_name     =   $_POST['lname']; //Deber ser igual al de el $
-    $m_number   =   $_POST['mnumber'];
-    $id_number  =   $_POST['idnumber'];
-    $e_mail     =   $_POST['email'];
-    $p_wd       =   $_POST['passwd'];
+    $f_name     =   trim($_POST['fname']); //Los campos dentro de los corchetes 
+    $l_name     =   trim($_POST['lname']); //Deber ser igual al de el $
+    $m_number   =   trim($_POST['mnumber']);
+    $id_number  =   trim($_POST['idnumber']);
+    $e_mail     =   trim($_POST['email']);
+    $p_wd       =   trim($_POST['passwd']);
 
-    //$enc_pass = password_hash(password: $p_wd, PASSWORD_DEFAULT);
+    //$enc_pass = password_hash($p_wd, PASSWORD_DEFAULT);
     $enc_pass = md5($p_wd);
 
     //Validar si usuario ya existe
@@ -27,7 +27,7 @@
     $res_check= pg_query($conn, $check_email);
     if (pg_num_rows($res_check)> 0) {
         echo "<script>Alert('User has already exists !!!')</script>";+
-        header('refresh:0;url=signup.html');
+        header('refresh:0;url=main.php');
     }else{
 
     //Step 3. Create query to insert into
