@@ -24,7 +24,7 @@
         LIMIT 1
     ";
     
-    $res_check= pg_query($conn, $check_email);
+    $res_check= pg_query($conn_supa, $check_email);
     if (pg_num_rows($res_check)> 0) {
         echo "<script>Alert('User has already exists !!!')</script>";+
         header('refresh:0;url=main.php');
@@ -48,7 +48,7 @@
             '$enc_pass')";
 
     //Step 4. Execute query
-    $res= pg_query($conn, $query);
+    $res= pg_query($conn_supa, $query);
 
     //Step 5. Validate result
     if($res){
