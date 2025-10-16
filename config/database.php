@@ -1,6 +1,5 @@
 <?php
     //Database connection to Supabase
-
     $supa_host       =   "aws-1-us-east-1.pooler.supabase.com";
     $supa_user       =   "postgres.qkjrlhsdftgvohxkulod";
     $supa_password   =   "craxkermc0421";

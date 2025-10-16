@@ -20,11 +20,6 @@
             <th>Status</th>
             <th>Options</th>
         </tr>
-        <?php
-            sql_users = "
-                //
-            ";
-        ?>
         <tr>
             <td>Joe Doe</td>
             <td>joe@gmail.com</td>
