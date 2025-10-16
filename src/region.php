@@ -63,7 +63,7 @@ $result_countries = pg_query($conn_supa, $query_countries);
         <tr><td><label>Country:</label></td></tr>
         <tr><td>
             <select name="country_id" required>
-                <option value="">--Seleccione un país--</option>
+                <option value="">--Choose a country--</option>
                 <?php while ($row = pg_fetch_assoc($result_countries)): ?>
                     <option value="<?php echo htmlspecialchars($row['id']); ?>">
                         <?php echo htmlspecialchars($row['name']); ?>

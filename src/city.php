@@ -60,7 +60,7 @@ $result_regions = pg_query($conn_supa, $query_regions);
         <tr><td><label>Región / Departamento:</label></td></tr>
         <tr><td>
             <select name="region_id" required>
-                <option value="">--Seleccione una región--</option>
+                <option value="">--Choose a region--</option>
                 <?php while ($row = pg_fetch_assoc($result_regions)): ?>
                     <option value="<?php echo htmlspecialchars($row['id']); ?>">
                         <?php echo htmlspecialchars($row['name']); ?>
