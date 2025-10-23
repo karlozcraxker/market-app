@@ -29,15 +29,20 @@
         port        =   $supa_port
     ";
 
-    $conn_supa = pg_connect($supa_data_connection);
     $conn_local = pg_connect($local_data_connection);
-
+    //$conn_supa = pg_connect($supa_data_connection);
 
     //Comprobar conexión
-    if(!$conn_supa){
+    if(!$conn_local){
         echo "Error" . pg_last_error();  //Para que muestre el último error
     }else{
         echo "Connection successfully!!!"; 
     }
+
+    /*if(!$conn_supa){
+        echo "Error" . pg_last_error();  //Para que muestre el último error
+    }else{
+        echo "Connection successfully!!!"; 
+    }*/
 
 ?>
