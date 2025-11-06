@@ -2,6 +2,16 @@
 //Step 1. Get database conection
     require('../config/database.php');
 
+    session_start();
+
+    // Start or create session
+
+    if(!isset($_SESSION['session_user_id'])){
+        header('refresh:0;url=main.php');
+    }else{
+        header('refresh:0;url=signin.php');
+    }
+
 //Step 2. Get form data
     $e_mail     =    trim($_POST['email']);
     $p_wd       =    trim($_POST['passwd']);
@@ -12,6 +22,8 @@
 //Step 3. Query to validate data
     $sql_check_user = "
         select
+            u.id,
+            u.firstname || ' ' || u.lastname as fullname,
 	        u.email,
 	        u.password
         from
@@ -21,10 +33,16 @@
 	        u.password = '$enc_pass'
         limit 1
     ";
-    $res_check = pg_query($conn_supa, $sql_check_user);
+    $res_check = pg_query($conn_local, $sql_check_user);
+
+    $row = pg_fetch_assoc($res_check);
+    $_SESSION['session_user_id'] = $row ['id'];
+    $_SESSION['session_user_fullname'] = $row ['fullname'];
+
 
     if(pg_num_rows($res_check) > 0){
         //echo "User exists. Go to main page !!!";
+        echo "<script>alert('Success Login')</script>";
         header('refresh:0;url=main.php');
 
     } else {

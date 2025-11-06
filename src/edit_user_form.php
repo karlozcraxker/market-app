@@ -25,35 +25,36 @@
     <title>Document</title>
 </head>
 <body>
-    <form name = "edit-user-form" action = "update_user.php" method = "post"></form>
-    <input 
-        type = "text" 
-        name = "iduser" 
-        value = "<?php echo $user_id?>" 
-        readonly
-        required><br><br>
-    
-    <label>Identification number: </label>
-    <input 
-        type = "text" 
-        name = "idenumber" 
-        value = "<?php echo $ide_number?>" 
-        readonly
-        required><br><br>
+    <form name = "edit-user-form" action = "update_user.php" method = "post">
+        <input 
+            type = "hidden" 
+            name = "iduser" 
+            value = "<?php echo $user_id?>" 
+            readonly
+            required/><br><br>
+        
+        <label>Identification number: </label>
+        <input 
+            type = "text" 
+            name = "idenumber" 
+            value = "<?php echo $ide_number?>" 
+            readonly
+            required/><br><br>
 
-    <label>Firstname: </label>
-    <input 
-        type = "text" 
-        name = "fname" 
-        value = "<?php echo $fname?>" 
-        required><br><br>
+        <label>Firstname: </label>
+        <input 
+            type = "text" 
+            name = "fname" 
+            value = "<?php echo $fname?>" 
+            required/><br><br>
 
-    <label>Lastname: </label>
-    <input 
-        type = "text" 
-        name = "lname" 
-        value = "<?php echo $lname?>" 
-        required><br><br>
-    <button>Update user</button>
+        <label>Lastname: </label>
+        <input 
+            type = "text" 
+            name = "lname" 
+            value = "<?php echo $lname?>" 
+            required/><br><br>
+        <button>Update user</button>
+    </form>
 </body>
 </html>

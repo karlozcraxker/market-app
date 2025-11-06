@@ -1,5 +1,9 @@
 <?php
-    echo "Welcome to main!!!";
+    session_start();
+
+    if(!isset($_SESSION['session_user_id'])){
+        header('refresh:0;url=error_403.html');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +15,8 @@
     <title>Marketapp - Home</title>
 </head>
 <body>
-    
+    <center><h6><b>User: </b><?php echo $_SESSION['session_user_fullname']; ?></h6></center>
+    <a href="list_users.php">List all users</a>
+    <a href="logout.php">Logout</a>
 </body>
 </html>
