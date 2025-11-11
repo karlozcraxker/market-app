@@ -54,6 +54,10 @@
             name = "lname" 
             value = "<?php echo $lname?>" 
             required/><br><br>
+
+        <label>User photo</label><br>
+        <input type = "file" name = "photo_user">
+        <br><br>
         <button>Update user</button>
     </form>
 </body>

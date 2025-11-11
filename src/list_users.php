@@ -26,6 +26,7 @@
             <th>Ide. number</th>
             <th>Phone number</th>
             <th>Status</th>
+            <th>Photo</th>
             <th>Options</th>
         </tr>
 
@@ -40,7 +41,8 @@
                     u.status,
                     case 
                         when u.status = true then 'Active' else 'Inactive'
-                    end as status
+                    end as status,
+                    u.url_photo
                 from 
                     users u;
             ";
@@ -59,6 +61,7 @@
                         <td>" . $row ['ide_number'] . "</td>
                         <td>" . $row ['mobile_number'] . "</td>
                         <td>" . $row ['status'] . "</td>
+                        <td><img src = ". $row ['url_photo'] ." width = '30'></td>
                         <td>
                             <a href='#'><img src = 'imagens/search.png' width = '20'></a>
                             <a href='edit_user_form.php?userId=". $row["user_id"]. "' >
